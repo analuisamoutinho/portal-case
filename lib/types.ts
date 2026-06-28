@@ -20,6 +20,8 @@ export interface Client {
   ecommerce_platform?: string
   ecommerce_api_token?: string
   ecommerce_store_id?: string
+  google_sheet_id?: string
+  google_sheet_last_sync?: string
   active: boolean
   created_at: string
 }

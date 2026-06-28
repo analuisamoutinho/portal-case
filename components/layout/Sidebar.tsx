@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import {
   LayoutDashboard, Target, GitBranch, FileImage,
-  Users, Calendar, BarChart2, BookOpen, ChevronRight, LogOut
+  Users, Calendar, BarChart2, BookOpen, ChevronRight, LogOut, Settings
 } from 'lucide-react'
 import { CompassIcon } from '@/components/ui/CompassIcon'
 import { createClient } from '@/lib/supabase'
@@ -12,14 +12,15 @@ import { useRouter } from 'next/navigation'
 import clsx from 'clsx'
 
 const NAV = [
-  { href: '/dashboard',    label: 'Dashboard',    icon: LayoutDashboard, badge: null },
-  { href: '/oportunidades',label: 'Oportunidades',icon: Target,          badge: 12 },
-  { href: '/timeline',     label: 'Timeline',     icon: GitBranch,       badge: null },
-  { href: '/materiais',    label: 'Materiais',    icon: FileImage,       badge: null },
-  { href: '/reunioes',     label: 'Reuniões',     icon: Users,           badge: 5 },
-  { href: '/calendario',   label: 'Calendário',   icon: Calendar,        badge: null },
-  { href: '/planejamento', label: 'Planejamento', icon: BarChart2,       badge: null, tag: 'NOVO' },
-  { href: '/lab',          label: 'CASE Lab',     icon: BookOpen,        badge: null, tag: 'BETA' },
+  { href: '/dashboard',      label: 'Dashboard',    icon: LayoutDashboard, badge: null },
+  { href: '/oportunidades',  label: 'Oportunidades',icon: Target,          badge: null },
+  { href: '/timeline',       label: 'Timeline',     icon: GitBranch,       badge: null },
+  { href: '/materiais',      label: 'Materiais',    icon: FileImage,       badge: null },
+  { href: '/reunioes',       label: 'Reuniões',     icon: Users,           badge: null },
+  { href: '/calendario',     label: 'Calendário',   icon: Calendar,        badge: null },
+  { href: '/planejamento',   label: 'Planejamento', icon: BarChart2,       badge: null, tag: 'NOVO' },
+  { href: '/lab',            label: 'CASE Lab',     icon: BookOpen,        badge: null, tag: 'BETA' },
+  { href: '/configuracoes',  label: 'Configurações',icon: Settings,        badge: null },
 ]
 
 interface SidebarProps {
