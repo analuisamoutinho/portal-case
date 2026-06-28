@@ -1,0 +1,34 @@
+# Dependências
+node_modules/
+.pnp
+.pnp.js
+
+# Build
+.next/
+out/
+dist/
+
+# !! NUNCA subir ao git ──────────────────
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+# ─────────────────────────────────────────
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Sistema
+.DS_Store
+*.pem
+Thumbs.db
+
+# Vercel
+.vercel
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts

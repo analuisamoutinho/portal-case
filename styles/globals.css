@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── CASE Design System ─────────────────────────── */
+:root {
+  --areia:   #F4E6D4;
+  --bege:    #E9D2B6;
+  --nude:    #D9B794;
+  --bronze:  #B8864B;
+  --marrom:  #4A2E1F;
+  --cafe:    #1E120D;
+  --surface: #FDFAF6;
+}
+
+@layer base {
+  html { @apply scroll-smooth; }
+
+  body {
+    @apply bg-areia text-marrom font-body antialiased;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+  }
+
+  * { @apply border-border; }
+
+  ::selection {
+    background: rgba(184, 134, 75, 0.25);
+    color: #1E120D;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { @apply bg-nude rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-bronze; }
+}
+
+@layer components {
+  /* ── Cards ── */
+  .card {
+    @apply bg-surface rounded-card shadow-card border border-bege/60;
+  }
+  .card-hover {
+    @apply transition-all duration-200 hover:shadow-card-hover hover:-translate-y-0.5;
+  }
+
+  /* ── Inputs ── */
+  .input-base {
+    @apply w-full bg-areia border border-bege rounded-input px-4 py-3
+           text-marrom placeholder:text-nude/80 font-body text-sm
+           focus:outline-none focus:border-bronze focus:ring-2 focus:ring-bronze/20
+           transition-all duration-150;
+  }
+
+  /* ── Botões ── */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2
+           bg-bronze text-surface font-body font-semibold text-sm
+           px-6 py-3 rounded-btn shadow-btn
+           hover:shadow-btn-hover hover:brightness-105
+           active:scale-[0.98] transition-all duration-150
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2
+           bg-transparent text-marrom/70 font-body text-sm
+           px-4 py-2 rounded-btn border border-bege
+           hover:bg-bege/40 hover:text-marrom
+           transition-all duration-150;
+  }
+
+  /* ── Labels ── */
+  .label-overline {
+    @apply text-label uppercase tracking-widest text-bronze font-semibold;
+  }
+
+  /* ── Sidebar ── */
+  .sidebar-item {
+    @apply flex items-center gap-3 px-4 py-2.5 rounded-[10px]
+           text-areia/60 text-sm font-body font-medium
+           hover:bg-white/8 hover:text-areia
+           transition-all duration-150 cursor-pointer;
+  }
+  .sidebar-item-active {
+    @apply bg-white/12 text-areia font-semibold;
+  }
+
+  /* ── KPI Cards ── */
+  .kpi-card {
+    @apply card p-4 flex flex-col gap-1;
+  }
+  .kpi-value {
+    @apply text-display-md font-display text-darkest tabular-nums;
+  }
+  .kpi-label {
+    @apply text-label text-marrom/50 uppercase tracking-wider;
+  }
+  .kpi-delta-up   { @apply text-xs font-semibold text-success; }
+  .kpi-delta-down { @apply text-xs font-semibold text-danger; }
+
+  /* ── Priority badges ── */
+  .badge-alta  { @apply inline-flex items-center px-2.5 py-0.5 rounded-pill bg-danger/10 text-danger text-xs font-semibold; }
+  .badge-media { @apply inline-flex items-center px-2.5 py-0.5 rounded-pill bg-warning/10 text-warning text-xs font-semibold; }
+  .badge-baixa { @apply inline-flex items-center px-2.5 py-0.5 rounded-pill bg-muted/30 text-marrom/60 text-xs font-semibold; }
+
+  /* ── Status materiais ── */
+  .status-pendente    { @apply inline-flex items-center px-2.5 py-0.5 rounded-pill bg-nude/30 text-marrom text-xs font-semibold; }
+  .status-aprovado    { @apply inline-flex items-center px-2.5 py-0.5 rounded-pill bg-success/10 text-success text-xs font-semibold; }
+  .status-alteracoes  { @apply inline-flex items-center px-2.5 py-0.5 rounded-pill bg-warning/10 text-warning text-xs font-semibold; }
+}
+
+@layer utilities {
+  .bg-white\/8  { background-color: rgba(255,255,255,0.08); }
+  .bg-white\/12 { background-color: rgba(255,255,255,0.12); }
+
+  /* Textura de mapa no fundo */
+  .map-texture {
+    background-image:
+      radial-gradient(circle at 65% 40%, rgba(184,134,75,0.05) 0%, transparent 60%),
+      radial-gradient(circle at 20% 70%, rgba(74,46,31,0.04) 0%, transparent 50%);
+  }
+
+  /* Borda bronze sutil */
+  .border-bronze-subtle { border-color: rgba(184,134,75,0.25); }
+}
